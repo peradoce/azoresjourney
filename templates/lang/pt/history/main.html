@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} História dos Açores {% endblock %}
+
+{% block header %}
+  {% include 'lang/pt/header.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+<ul class="collapsible" data-collapsible="accordion">
+  <li>
+    <div class="collapsible-header"><i class="material-icons">list</i>Lista de Ilhas</div>
+    <div class="collapsible-body white">
+
+      <div class="row">
+
+          {% for island in islands %}
+          <div class="col s12 m12 l4">
+            <div class="card">
+              <ul class="collection">
+                <li class="collection-item light-blue white-text"><i class="material-icons left">location_on</i> {{ island.ilha }}</li>
+                <li class="collection-item light-blue-text">
+                  <a class="light-blue-text" href="http://localhost:8000/pt/history/island/{{ island.id }}">
+                    <i class="material-icons right">more</i> -  Mais detalhes
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          {% endfor %}
+
+      </div>
+    </div>
+  </li>
+
+  <li>
+    <div class="collapsible-header"><i class="material-icons">label</i>História</div>
+    <div class="collapsible-body white">
+    <div class="row">
+
+        <div class="col s12 m12 l12 text-justify">
+
+
+              <img class="article-img" src="http://i.imgur.com/ru4naEk.jpg">
+
+
+              <h4>Região Autonoma dos Açores</h4>
+              <p>Os Açores, oficialmente Região Autónoma dos Açores, são um arquipélago transcontinental e um território autónomo da República Portuguesa, situado no Atlântico nordeste, dotado de autonomia política e administrativa, consubstanciada no Estatuto Político-Administrativo da Região Autónoma dos Açores. Os Açores integram a União Europeia com o estatuto de região ultraperiférica do território da União, conforme estabelecido nos artigos 349.º e 355.º do Tratado sobre o Funcionamento da União Europeia.</p>
+              <h4>História dos Açores.</h4>
+              <p>A data exacta da descoberta do arquipélago dos Açores é ainda desconhecida. Em 1432 o português Gonçalo Velho Cabral descobriu a ilha de Santa Maria e no ano de 1457 todas as ilhas tinham já sido visitadas por exploradores quer portugueses, quer flamengos. A colonização das então desocupadas ilhas começou em 1439 com gentes sobretudo das províncias continentais do Minho, numa primeira fase e do Algarve e Alentejo, numa segunda. Nos séculos seguintes, chegariam colonizadores de outras regiões europeias como a Flandres e o Norte de França.</p>
+              <br>
+              <p>Depois de Santa Maria, a próxima ilha a ser descoberta foi a de São Miguel. Depois foi a vez das ilhas do Grupo Central serem descobertas: Terceira, Graciosa, São Jorge, Pico e Faial. Por fim as ilhas do Grupo Ocidental, Flores e Corvo, foram avistadas em 1452. a primeira capital de São Miguel foi Vila Franca do Campo. Todavia, desde a violenta erupção do vulcão do Fogo em 1522 que soterrou a cidade de Vila Franca do Campo, foi Ponta Delgada a assumir o papel de capital.</p>
+              <br>
+              <p>A terceira ilha e ser descoberta foi inicialmente denominada de Ilha de Jesus Cristo, tendo depois sido adoptado o nome de Terceira, pelo qual é hoje conhecida. Apesar de não haver uma data exacta, é largamente admitido o ano de 1450 para a descoberta da ilha Graciosa por marinheiros que navegavam em redor da ilha Terceira. Vasco Gil Sodré, português do continente, assentou na Graciosa pouco tempo depois. A primeira referência à ilha de São Jorge surge em 1439 mas a data real da sua descoberta é também desconhecida. Em 1443 a ilha era já habitada mas a colonização propriamente dita começou somente com a chegada à ilha do nobre Flamengo Wilhem Van der Haegen.</p>
+              <br>
+              <p>A ilha do Faial, conhecida como a “insule de venture” nas antigas cartas e roteiros marítimos, é dada como descoberta na primeira metade do século XV. A colonização desta ilha começou antes de 1460 na costa Norte com gentes do Norte Português. As duas ilhas compreendidas pelo Grupo Ocidental foram as últimas a ser descobertas. Flores e Corvo foram-no cerca de 1452 por Diogo de Teive e seu filho João de Teive. A ilha da Flores foi inicialmente chamada ilha de São Tomás e Santa Iria mas devido à abundância das flores (Cubres) que cobriam de amarelo a paisagem, o nome Flores pareceu mais apropriado. O flamengo Wilhem Van der Haegen assentou-se nas Flores em 1470.</p>
+              <br>
+              <p>Entre 1580 e 1640, tal como todo o Portugal, os Açores tiveram que se submeter ao domínio espanhol. Durante esse período nos mares em redor do arquipélago travaram-se duras batalhas marítimas entre corsários espanhóis e ingleses. Todavia, com a recuperação da soberania portuguesa e a ascensão da Casa de Bragança deu-se um declínio na prosperidade comercial das ilhas. Mas com a evolução da navegação, os Açores, com a sua posição geográfica estratégica, tornaram-se num importante ponto de referência e paragem nas rotas que ligavam Europa, África, a Ásia, e as Américas, nos séculos XVI e XVII.</p>
+              <br>
+              <p>Uma nova vaga de prosperidade deu-se depois do período das invasões francesas na Península Ibérica e com a fuga de D.João IV para o Brasil (1807) e a abolição de várias restrições sobre o comércio. Mais tarde a guerra civil em Portugal teve fortes repercussões nos Açores: em 1829 deu-se, na Vila da Praia (que depois se chamaria Praia da Vitória), na ilha Terceira, uma vitória dos liberais sobre os absolutistas. Estabeleceu-se então na ilha Terceira a capital do reino, com o Conselho da Regência da raínha D.Maria II.</p>
+              <br>
+              <p>Mais recentemente, entre 1836 e 1976 o arquipélago esteve dividido em distritos, prática que tinha sido estabelecida em Portugal Continental. A divisão não reflectia a actual nem, de certo modo, o agrupamento natural das ilhas: reflectia antes a importância das três capitais de distrito (sendo que nenhuma destas pertencia ao actual Grupo Ocidental). O distrito de Angra compreendia as ilhas Terceira, Graciosa e São Jorge, com Angra do Heroísmo (Terceira) como capital. O distrito da Horta incluía as ilhas do Faial, Pico, Flores e Corvo e tinha na Horta (Faial) a sua capital. Ponta Delgada era a capital do outro distrito que consistia nas ilhas de São Miguel e Santa Maria.</p>
+              <br>
+              <p>Em 1976 os Açores tornaram-se finalmente na Região Autónoma dos Açores, uma das duas actuais de Portugal, sendo suprimida a divisão por distritos.</p>
+              <br>
+              <h4>Clima dos Açores</h4>
+              <p>O Clima dos Açores é temperado, registando-se temperaturas médias de 13°C no Inverno e 24°C no Verão. A Corrente do Golfo, que passa relativamente perto, mantém as águas do mar a uma temperatura média entre os 17°C e os 23°C. O ar é húmido com humidade relativa média de cerca de 75%. As ilhas são visitadas com relativa frequência por tempestades tropicais, incluindo algumas com intensidade suficiente para serem consideradas como furacões.</p>
+              <br>
+
+
+        </div>
+      </div>
+    </div>
+  </li>
+
+  <li>
+    <div class="collapsible-header"><i class="material-icons">image</i>Imagens</div>
+    <div class="collapsible-body white">
+      <div class="row">
+
+
+        <div class="col s12 m12 l3">
+          <div class="card">
+
+            <img class="materialboxed" width="100%" height="175px" src="http://i.imgur.com/94DrZzA.jpg">
+          </div>
+        </div>
+        <div class="col s12 m12 l3">
+          <div class="card">
+
+            <img class="materialboxed" width="100%" height="175px" src="http://i.imgur.com/dA8KE9n.jpg">
+          </div>
+        </div>
+
+        <div class="col s12 m12 l3">
+          <div class="card">
+
+            <img class="materialboxed" width="100%" height="175px" src="http://i.imgur.com/EdXEdfD.jpg">
+          </div>
+        </div>
+
+
+        <div class="col s12 m12 l3">
+          <div class="card">
+
+            <img class="materialboxed" width="100%" height="175px" src="http://i.imgur.com/4BrCGmV.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+  <li>
+    <div class="collapsible-header"><i class="material-icons">play_circle_filled</i>Vídeo</div>
+    <div class="collapsible-body white">
+        <div class="row">
+        <div class="col s12 m12 l12">
+          <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/S1I05VU_8uQ" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        </div>
+      </div>
+    </li>
+
+
+  </div>
+</ul>
+{% endblock %}

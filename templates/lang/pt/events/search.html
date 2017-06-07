@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Eventos {% endblock %}
+
+{% block header %}
+  {% include 'lang/pt/header.html' %}
+{% endblock %}
+
+{% block content %}
+  <div class="section light-blue white-text">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m12 l12">
+          <center>
+            <h4>Eventos do mês de {{ month }} para a Ilha de {{ island.ilha }}</h4>
+          </center>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+    <div class="row white">
+      <div class="col s12 m12 l12">
+        <h5><i class="material-icons">search</i> Resultados da pesquisa</h5>
+        <div class="divider">
+        </div>
+      </div>
+
+      {% for event in events %}
+        <div class="col s12 m6 l6">
+          <div class="card card-height">
+              <div class="card-image">
+                <img height="175px" src="{{ event.imagem.url }}">
+                <a href="/pt/event/{{ event.id }}" class="btn-floating halfway-fab waves-effect waves-light light-blue"><i class="material-icons">add</i></a>
+              </div>
+              <div class="card-content">
+                <p class="flow-text"><b>{{ event.titulo }}</b></p>
+                <div class="divider">
+                </div>
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <center>
+                      <h6><b>Data</b></h6>
+                      <p>De {{ event.data_comeco }} a {{ event.data_fim }}</p>
+                    </center>
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <center>
+                      <h6><b>Freguesia</b></h6>
+                      <p>{{ event.freguesia }}</p>
+                    </center>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  </div>
+{% endblock %}

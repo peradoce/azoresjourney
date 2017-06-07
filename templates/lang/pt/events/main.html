@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Eventos {% endblock %}
+
+{% block header %}
+  {% include 'lang/pt/header.html' %}
+{% endblock %}
+
+{% block content %}
+
+<div class="section light-blue">
+  <div class="container">
+    <div class="row white-text">
+      <div class="col s12 m12 l12 font-bree">
+        <center>
+          <h4>Pesquise Eventos</h4>
+        </center>
+      </div>
+    </div>
+
+    <div class="row light-blue lighten-1 white-text border-radius">
+      <form action="/pt/search/events/" method="get">
+        <div class="input-field col s12 m12 l12">
+        </div>
+        <div class="input-field col s12 m6 l5">
+          <i class="material-icons prefix">today</i>
+            <select name="m">
+
+              {% for key,value in months.items %}
+
+                <option value="{{ key }}">{{ value }}</option>
+
+              {% endfor %}
+            </select>
+            <label class="white-text">Mês</select>
+        </div>
+        <div class="input-field col s12 m6 l5">
+          <i class="material-icons prefix">location_on</i>
+            <select name="isl">
+              {% for island in islands %}
+                <option value="{{ island.id }}">{{ island.ilha }}</option>
+              {% endfor %}
+            </select>
+          <label class="white-text">Na ilha</label>
+        </div>
+        <div class="input-field col s12 m12 l2">
+          <center>
+            <button type="submit" class="btn-floating btn-large waves-effect waves-light light-blue">
+              <i class="material-icons">search</i>
+            </button>
+          </center>
+        </div>
+        <div class="input-field col s12 m12 l12">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="container">
+    <div class="row white">
+      <div class="col s12 m12 l12">
+        <h5><i class="material-icons">today</i> Eventos para o mês de {{ month }}</h5>
+        <div class="divider">
+        </div>
+      </div>
+      {% if is_zero %}
+        <div class="col s12 m12 l12">
+          <h6>Não existem eventos para o mês de {{ month }}</h6>
+        </div>
+      {% else %}
+      {% for event in events %}
+        <div class="col s12 m6 l6">
+          <div class="card card-height">
+              <div class="card-image">
+                <img height="175px" src="{{ event.imagem.url }}">
+                <a class="btn-floating halfway-fab waves-effect waves-light light-blue"><i class="material-icons">add</i></a>
+              </div>
+              <div class="card-content">
+                <p class="flow-text"><b>{{ event.titulo }}</b></p>
+                <div class="divider">
+                </div>
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <center>
+                      <h6><b>Data</b></h6>
+                      <p>De {{ event.data_comeco }} a {{ event.data_fim }}</p>
+                    </center>
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <center>
+                      <h6><b>Ilha</b></h6>
+                      <p>{{ event.ilha }}</p>
+                    </center>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

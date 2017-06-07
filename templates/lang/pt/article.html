@@ -1,0 +1,218 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Azores Journey {% endblock %}
+
+{% block header %}
+  {% include 'lang/pt/header.html' %}
+{% endblock %}
+
+{% block content %}
+  <div class="section">
+    <div class="container">
+
+      <div class="row">
+        <div class="col s12 m12 l12">
+          <div class="card">
+            <div class="card-image">
+              <img class="article-img" src="{{ data.imagem.url }}">
+            </div>
+            <div class="card-content">
+              <h4>{{ data.titulo }}</h4>
+              <p>{{ data.descricao }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m12 l4">
+
+
+
+        </div>
+      </div>
+
+
+      <div class="row">
+
+        <div class="col s12 m12 l4">
+
+            <ul class="collection">
+              <li class="collection-item light-blue white-text"><i class="material-icons left">star</i> Nome</li>
+              <li class="collection-item "> {{ data.titulo}}</li>
+            </ul>
+
+        </div>
+
+        <div class="col s12 m12 l4">
+
+            <ul class="collection">
+              <li class="collection-item light-blue white-text"><i class="material-icons left">star</i> Categoria</li>
+              <li class="collection-item "> {{ data.subcategoria}}</li>
+            </ul>
+
+        </div>
+
+        {% if is_hotel %}
+        <div class="col s12 m12 l4">
+
+            <ul class="collection">
+              <li class="collection-item light-blue white-text"><i class="material-icons left">star</i> Estrelas</li>
+              <li class="collection-item "> {{ data.estrelas}}</li>
+            </ul>
+
+        </div>
+        {% endif %}
+      </div>
+
+      <div class="row">
+        <div class="col s12 m12 l4">
+
+            <ul class="collection">
+              <li class="collection-item light-blue white-text"><i class="material-icons left">location_on</i> Ilha</li>
+              <li class="collection-item "> {{ data.ilha }}</li>
+            </ul>
+
+        </div>
+
+        <div class="col s12 m12 l4">
+
+            <ul class="collection">
+              <li class="collection-item light-blue white-text"><i class="material-icons left">location_on</i> Concelho</li>
+              <li class="collection-item "> {{ data.concelho }}</li>
+            </ul>
+
+        </div>
+
+        <div class="col s12 m12 l4">
+
+            <ul class="collection">
+              <li class="collection-item light-blue white-text"><i class="material-icons left">location_on</i> Freguesia</li>
+              <li class="collection-item "> {{ data.freguesia }}</li>
+            </ul>
+
+        </div>
+
+
+      </div>
+
+      {% if is_hotel %}
+      <div class="row">
+
+
+          <div class="col s12 m12 l12">
+
+              <ul class="collection">
+                <li class="collection-item light-blue white-text"><i class="material-icons left">group_work</i> Booking</li>
+                <li class="collection-item "><a href="{{ data.booking }}">- Link</a></li>
+              </ul>
+
+          </div>
+
+        </div>
+      {% endif %}
+
+      <div class="row">
+        <div class="col s12 m12 l4">
+
+            <ul class="collection">
+              <li class="collection-item light-blue white-text"><i class="material-icons left">supervisor_account</i> Facebook</li>
+              <li class="collection-item"><a href="{{ data.facebook }}">- Link</a></li>
+            </ul>
+
+        </div>
+
+        <div class="col s12 m12 l4">
+
+            <ul class="collection">
+              <li class="collection-item light-blue white-text"><i class="material-icons left">supervisor_account</i> Twitter</li>
+              <li class="collection-item"><a href="{{ data.twitter }}">- Link</a></li>
+            </ul>
+
+        </div>
+
+        <div class="col s12 m12 l4">
+
+            <ul class="collection">
+              <li class="collection-item light-blue white-text"><i class="material-icons left">supervisor_account</i> Site</li>
+              <li class="collection-item"><a href="{{ data.url }}">- Link</a></li>
+            </ul>
+
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col s12 m12 l6">
+
+            <ul class="collection">
+              <li class="collection-item light-blue white-text"><i class="material-icons left">phone</i> Telefone</li>
+              <li class="collection-item"><a  href="tel:{{ data.telefone }}">- {{ data.telefone}}</a></li>
+            </ul>
+
+        </div>
+
+        <div class="col s12 m12 l6">
+
+
+            <ul class="collection">
+              <li class="collection-item light-blue white-text"><i class="material-icons left">stay_current_portrait</i> Telemóvel</li>
+              <li class="collection-item "><a  href="tel:{{ data.telemovel }}">- {{ data.telemovel}}</a></li>
+            </ul>
+
+        </div>
+
+        <div class="col s12 m12 l6">
+
+            <ul class="collection">
+              <li class="collection-item light-blue white-text"><i class="material-icons left">details</i> E-mail</li>
+              <li class="collection-item"><a href="mailto:{{ data.email }}">- {{ data.email}}</a></li>
+            </ul>
+
+        </div>
+
+        <div class="col s12 m12 l6">
+
+            <ul class="collection">
+              <li class="collection-item light-blue white-text"><i class="material-icons left">location_on</i> Morada</li>
+              <li class="collection-item"> {{ data.morada}}</li>
+            </ul>
+
+        </div>
+
+
+
+      </div>
+
+
+
+
+      <div class="row">
+        <div class="col s12 m12 l6">
+
+            <ul class="collection">
+              <li class="collection-item light-blue white-text"><i class="material-icons left">av_timer</i> Horário</li>
+              <li class="collection-item">{{ data.hora_aberto }} - {{ data.hora_fechado }}</li>
+            </ul>
+
+        </div>
+
+        <div class="col s12 m12 l6">
+
+            <ul class="collection">
+              <li class="collection-item light-blue white-text"><i class="material-icons left">map</i> Mapa</li>
+              <li class="collection-item"><a href="http://maps.google.com/?q={{ data.coordenadas_mapa }}">Mapa</a></li>
+            </ul>
+
+        </div>
+
+      </div>
+
+
+      </div>
+
+
+
+    </div>
+
+
+{% endblock %}

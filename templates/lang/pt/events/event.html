@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Eventos {% endblock %}
+
+{% block header %}
+  {% include 'lang/pt/header.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="section light-blue">
+  <div class="container">
+    <div class="row white-text">
+      <div class="col s12 m12 l12">
+        <center>
+          <h4 class="font-bree">
+            {{ data.titulo }}
+          </h4>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="container">
+
+    <ul class="collapsible" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header active white"><i class="material-icons">star</i>Principal</div>
+        <div class="collapsible-body white">
+          <div class="row">
+            <div class="col s12 m12 l12">
+              <img src="{{ data.imagem.url }}" class="article-img" width="100%">
+            </div>
+            <div class="col s12 m12 l12">
+              <div class="card">
+                <ul class="collection">
+                  <li class="collection-item light-blue white-text"><i class="material-icons left">today</i>Data</li>
+                  <li class="collection-item">
+                    De {{ data.data_comeco }} a {{ data.data_fim }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col s12 m12 l4">
+              <div class="card">
+                <ul class="collection">
+                  <li class="collection-item light-blue white-text"><i class="material-icons left">location_on</i>Ilha</li>
+                  <li class="collection-item">
+                    {{ data.ilha }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col s12 m12 l4">
+              <div class="card">
+                <ul class="collection">
+                  <li class="collection-item light-blue white-text"><i class="material-icons left">location_on</i>Concelho</li>
+                  <li class="collection-item">
+                    {{ data.concelho }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col s12 m12 l4">
+              <div class="card">
+                <ul class="collection">
+                  <li class="collection-item light-blue white-text"><i class="material-icons left">location_on</i>Freguesia</li>
+                  <li class="collection-item">
+                    {{ data.freguesia }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header active white"><i class="material-icons">list</i>Cartaz</div>
+        <div class="collapsible-body white">
+          <div class="row">
+            <div class="col s12 m12 l12">
+
+              {% autoescape off %}
+                {{ data.cartaz }}
+              {% endautoescape %}
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header active white"><i class="material-icons">play_circle_filled</i>Video</div>
+        <div class="collapsible-body white">
+          <div class="row">
+            <div class="col s12 m12 l12">
+              <div class="video-container">
+                <iframe width="560" height="315" src="{{data.video}}" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+</div>
+
+{% endblock %}

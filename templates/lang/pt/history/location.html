@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} História de {{ data.freguesia }} {% endblock %}
+
+{% block header %}
+  {% include 'lang/pt/header.html' %}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="section light-blue">
+  <div class="row white-text">
+    <div class="col s12 m12 l12">
+      <center>
+        <h4>Freguesia de {{ data.freguesia }}</h4>
+      </center>
+  </div>
+</div>
+</div>
+
+<div class="container">
+
+<ul class="collapsible" data-collapsible="accordion">
+
+<li>
+<div class="collapsible-header"><i class="material-icons">label</i>História</div>
+<div class="collapsible-body white">
+    <div class="row">
+        <div class="col s12 m12 l12">
+
+            <center>
+              <img width="225px" height="300px" src="{{data.imagem.url}}">
+            </center>
+
+
+              {% autoescape off %}
+              <h3>Freguesia de {{ data.freguesia }}</h3>
+              {{ data.historia }}
+              {% endautoescape %}
+
+
+        </div>
+      </div>
+    </div>
+  </li>
+
+
+
+
+  <li>
+  <div class="collapsible-header"><i class="material-icons">image</i>Imagens</div>
+  <div class="collapsible-body white">
+      <div class="row">
+        {% for item in extra %}
+        <div class="col s12 m12 l3">
+          <div class="card">
+            <img class="materialboxed" width="100%" height="175px" src="{{ item.imagem.url }}">
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+  </div>
+</li>
+
+<li>
+<div class="collapsible-header"><i class="material-icons">play_circle_filled</i>Vídeo</div>
+<div class="collapsible-body white">
+      <div class="row">
+        <div class="col s12 m12 l12">
+          <div class="col s12 m12 l12">
+            <div class="video-container">
+              <iframe width="560" height="315" src="{{data.video}}" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</li>
+
+    </div>
+</ul>
+
+{% endblock %}
