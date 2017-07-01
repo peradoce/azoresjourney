@@ -15,11 +15,12 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from main import views
+from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^tinymce/', include('tinymce.urls')),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^$', views.index),
     url(r'^pt/$', views.indexPT),
     url(r'^en/$', views.indexEN),
@@ -29,8 +30,7 @@ urlpatterns = [
     url(r'^pt/history/city/(\d{1,4})/$', views.historyCityPT),
     url(r'^pt/history/location/(\d{1,4})/$', views.historyLocationPT),
     url(r'^pt/search/article/$', views.searchArticlePT),
-    url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': 'media'}),
     url(r'^pt/events/$', views.eventPT),
     url(r'^pt/search/events/$', views.searchEventPT),
     url(r'^pt/event/(\d{1,4})/$', views.eventShowPT),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -11,7 +11,7 @@ class FreguesiaAdmin(admin.ModelAdmin):
 
 
 class CategoriaAdmin(admin.ModelAdmin):
-    list_display = ('categoria', 'categoria_en', 'categoria_fr', 'categoria_de', )
+    list_display = ('categoria', 'categoria_en',  )
 
 class SubcategoriaAdmin(admin.ModelAdmin):
     list_display = ('subcategoria', 'categoria', )
